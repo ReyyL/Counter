@@ -41,13 +41,13 @@ class ViewController: UIViewController {
     
     @IBAction func clickIncreaseButton(_ sender: Any) {
         number += 1
-        history.text.append(returnData() + "+1 \n")
+        history.text.append(returnData() + "значение изменено на +1 \n")
     }
     
     @IBAction func clickDecreaseButton(_ sender: Any) {
         if number > 0 {
             number -= 1
-            history.text.append(returnData() + "-1 \n")
+            history.text.append(returnData() + "значение изменено на -1 \n")
         } else {
             history.text.append(returnData() + "попытка уменьшить значение счётчика ниже 0 \n")
         }
