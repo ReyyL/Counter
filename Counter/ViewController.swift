@@ -9,21 +9,21 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var counter: UILabel!
+    @IBOutlet private weak var counter: UILabel!
     
-    @IBOutlet weak var history: UITextView!
+    @IBOutlet private weak var history: UITextView!
     
-    @IBOutlet weak var buttonIncrease: UIButton!
+    @IBOutlet private weak var buttonIncrease: UIButton!
     
-    @IBOutlet weak var buttonDecrease: UIButton!
+    @IBOutlet private weak var buttonDecrease: UIButton!
     
-    @IBOutlet weak var reset: UIButton!
+    @IBOutlet private weak var reset: UIButton!
     
-    var number = 0
+    private var number = 0
     
-    let formatter = DateFormatter()
+    private let formatter = DateFormatter()
 
-    var counterText = "Значение счетчика: "
+    private var counterText = "Значение счетчика: "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,17 +34,17 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func returnData() -> String {
+    private func returnData() -> String {
         let currentDate = formatter.string(from: Date())
         return "\(currentDate): "
     }
     
-    @IBAction func clickIncreaseButton(_ sender: Any) {
+    @IBAction private func clickIncreaseButton(_ sender: Any) {
         number += 1
         history.text.append(returnData() + "значение изменено на +1 \n")
     }
     
-    @IBAction func clickDecreaseButton(_ sender: Any) {
+    @IBAction private func clickDecreaseButton(_ sender: Any) {
         if number > 0 {
             number -= 1
             history.text.append(returnData() + "значение изменено на -1 \n")
@@ -53,13 +53,13 @@ class ViewController: UIViewController {
         }
     }
         
-    @IBAction func clickResetButton(_ sender: Any) {
+    @IBAction private func clickResetButton(_ sender: Any) {
         number = 0
         history.text.append(returnData() + "значение сброшено \n")
     }
         
         
-    @IBAction func updateOnTap(_ sender: Any) {
+    @IBAction private func updateOnTap(_ sender: Any) {
         counter.text = counterText + "\(number)"
     }
 }
